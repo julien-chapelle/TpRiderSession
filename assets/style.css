@@ -1,0 +1,43 @@
+.fontColor1 {
+    color: #c21111;
+}
+.imgLogo {
+    height: 60px;
+}
+
+/* Fonts */
+.fontBankGothic {
+    font-family: "BankGothic Md BT";
+}
+
+@font-face {
+    font-family: "BankGothic Md BT";
+    src: url("font/BankGothic Md BT.ttf");
+}
+
+/* Fonts */
+/* Background body */
+#bodyPicsCover {
+    background-image: url('../assets/img/bodyBackground.jpg');
+    background-position: left;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Background body */
+/* scrollUp button */
+#scrollUp {
+    position: fixed;
+    bottom: 5px;
+    right: -100px;
+    font-size: 50px;
+}
+
+.scrollUpColor {
+    color: #c21111;
+    opacity: 0.7;
+}
+
+/* scrollUp button */
