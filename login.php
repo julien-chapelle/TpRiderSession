@@ -1,3 +1,32 @@
+<?php
+// Start the session
+session_start();
+if (isset($_SESSION['riderNumber'])) {
+    $key = $_SESSION['riderNumber'];
+} else {
+    '';
+};
+
+$wrongMdpLogin = 'Mauvais login ou mot de passe'; 
+
+if (isset($_POST['login'])) {
+    if ($_POST['mailLogin'] == 'neuman.josh@gmail.com' && $_POST['passwordLogin'] == 'commesurdesroulettes') {
+        $_SESSION['riderNumber'] = 0;
+        header('location: index.php');
+    } elseif ($_POST['mailLogin'] == 'castillo.maxime@laposte.net' && $_POST['passwordLogin'] == 'glissesurlebide') {
+        $_SESSION['riderNumber'] = 1;
+        header('location: index.php');
+    } elseif ($_POST['mailLogin'] == 'haakonsen.terje@gmail.com' && $_POST['passwordLogin'] == 'skollglace') {
+        $_SESSION['riderNumber'] = 2;
+        header('location: index.php');
+    } else {
+        return $wrongMdpLogin;
+    };
+};
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -27,21 +56,70 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto">
                     <li class="nav-item active m-2">
                         <a class="nav-link" href="index.php"><i class="fas fa-photo-video"></i> Sessions</a>
                     </li>
-                    <li class="nav-item active m-2">
-                        <a class="nav-link" href="profil.php"><i class="fas fa-sign-in-alt"></i> Connexion</a>
-                    </li>
+                    <?php
+
+                    if (isset($_SESSION['riderNumber'])) { ?>
+
+                        <li class="nav-item active m-2">
+                            <a class="nav-link" href="profil.php"><?= '<i class="fas fa-snowboarding"></i> ' . 'Salut ' . $riders[$key]['firstname'] . ' !' ?></a>
+
+                        </li>
+
+                    <?php } else { ?>
+
+                        <li class="nav-item active m-2">
+                            <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt"></i> Connection</a>
+                        </li>
+
+                    <?php };
+                    ?>
+
                 </ul>
             </div>
         </nav>
+        <!-- Titre h1 début -->
         <div class="row justify-content-around m-0 mt-4">
             <div class="col">
-                <p class="h1 fontColor1 text-center">THREE OF RIDE<p>
+                <h1 class="fontColor1 text-center">THREE OF RIDE<h1>
             </div>
         </div>
+        <!-- Titre h1 fin -->
+        <!-- Titre h2 début -->
+        <div class="row text-center m-0 my-3 border-dark border-bottom">
+            <div class="col">
+                <h2 class="font-weight-bold fontColor1 h4">CONNECTION</h2>
+                <p class="font-weight-bold fontColor1 h5"><?= '<i class="far fa-times-circle"></i> ' . $wrongMdpLogin . ' !' ?></p>
+            </div>
+        </div>
+        <!-- Titre h2 fin -->
+        <!-- form login début -->
+        <form action="login.php" method="POST">
+            <div class="row text-center m-0 mt-1 justify-content-center">
+                <div class="col-10">
+                    <label class="font-weight-bold fontColor1" for="mailLogin"><i class="fas fa-at"></i> EMAIL</label>
+                    <input title="Renseignez l'adresse email" placeholder="ex: JeanDupont@wanadoo.fr" type="email" class="form-control text-center" name="mailLogin" id="mailLogin" />
+                </div>
+            </div>
+            <div class="row text-center m-0 mt-1 justify-content-center">
+                <div class="col-10">
+                    <label class="font-weight-bold fontColor1" for="passwordLogin"><i class="fas fa-unlock-alt"></i> MOT DE PASSE</label>
+                    <input title="Renseignez le mot de passe" type="password" class="form-control text-center" name="passwordLogin" id="passwordLogin" />
+                </div>
+            </div>
+            <div class="row text-center m-0 mt-3 justify-content-center">
+                <div class="col py-4">
+                    <button class="btn btn-danger btn-sm" role="button" type="submit" name="login">Connection au compte</button>
+                </div>
+                <div class="col py-4">
+                    <a href="index.php" class="btn btn-danger btn-sm" role="button" type="button" name="returnIndex2">Retour à l'accueil</a>
+                </div>
+            </div>
+        </form>
+        <!-- form login fin -->
     </div>
 
 

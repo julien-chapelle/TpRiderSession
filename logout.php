@@ -1,3 +1,14 @@
+<?php
+// Start the session
+session_start();
+if (isset($_SESSION['riderNumber'])) {
+    $key = $_SESSION['riderNumber'];
+} else {
+    '';
+};
+// var_dump($_SESSION);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -27,21 +38,59 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto">
                     <li class="nav-item active m-2">
                         <a class="nav-link" href="index.php"><i class="fas fa-photo-video"></i> Sessions</a>
                     </li>
-                    <li class="nav-item active m-2">
-                        <a class="nav-link" href="profil.php"><i class="fas fa-sign-in-alt"></i> Connexion</a>
-                    </li>
+                    <?php
+
+                    if (isset($_SESSION['riderNumber'])) { ?>
+
+                        <li class="nav-item active m-2">
+                            <a class="nav-link" href="profil.php"><?= '<i class="fas fa-snowboarding"></i> ' . 'Salut ' . $riders[$key]['firstname'] . ' !' ?></a>
+
+                        </li>
+
+                    <?php } else { ?>
+
+                        <li class="nav-item active m-2">
+                            <a class="nav-link" href="login.php"><i class="fas fa-sign-in-alt"></i> Connection</a>
+                        </li>
+
+                    <?php };
+                    ?>
+
                 </ul>
             </div>
         </nav>
+        <!-- Titre h1 début -->
         <div class="row justify-content-around m-0 mt-4">
             <div class="col">
-                <p class="h1 fontColor1 text-center">THREE OF RIDE<p>
+                <h1 class="fontColor1 text-center">THREE OF RIDE<h1>
             </div>
         </div>
+        <!-- Titre h1 fin -->
+        <!-- Titre h2 début -->
+        <div class="row text-center m-0 my-3 border-dark border-bottom">
+            <div class="col">
+                <h2 class="font-weight-bold fontColor1 h4">DECONNECTION</h2>
+            </div>
+        </div>
+        <!-- Titre h2 fin -->
+        <!-- logout message début -->
+        <div class="row text-center m-0 my-3 border-dark border-bottom">
+            <div class="col">
+                <p class="font-weight-bold fontColor1 h4">Vous êtes bien déconnecté !</p>
+            </div>
+        </div>
+        <!-- logout message fin -->
+        <!-- logout button début -->
+        <div class="row text-center m-0 mt-3 justify-content-center">
+            <div class="col py-4">
+                <a href="index.php" class="btn btn-danger btn-sm" role="button" type="submit" name="returnIndex2">Retour à l'accueil</a>
+            </div>
+        </div>
+        <!-- logout button fin -->
     </div>
 
 
