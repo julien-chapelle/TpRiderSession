@@ -6,7 +6,6 @@ if (isset($_SESSION['riderNumber'])) {
 } else {
     '';
 };
-// var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>

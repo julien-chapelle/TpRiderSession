@@ -125,18 +125,18 @@ $riders = array(
         <!-- Titre h2 fin -->
         <!-- info user h3 début -->
         <div class="row text-left m-0">
-            <div class="col-8 mx-auto">
+            <div class="col-10 mx-auto">
                 <div class="card">
                     <div class="card-body">
                         <img src="<?= $riders[$key]['avatar'] ?>" class="card-img-top p-0" />
-                        <h3 class="card-text h5 mt-3">Nom : <?= $riders[$key]['lastname'] ?></h3>
-                        <h3 class="card-text h5">Prénom : <?= $riders[$key]['firstname'] ?></h3>
-                        <h3 class="card-text h5">Age : <?= $riders[$key]['age'] ?></h3>
-                        <h3 class="card-text h5">genre : <?= $riders[$key]['gender'] ?></h3>
-                        <h3 class="card-tex h5">Mot de passe : <?= $riders[$key]['mdp'] ?></h3>
-                        <h3 class="card-text h5">Email : <?= $riders[$key]['mail'] ?></h3>
-                        <h3 class="card-text font-weight-bold h5">Pays : <?= $riders[$key]['country'] ?></h3>
-                        <h3 class="card-text font-weight-bold h5">Sport : <?= $riders[$key]['sport'] ?></h3>
+                        <h3 class="card-text h6 mt-3">Nom : <?= $riders[$key]['lastname'] ?></h3>
+                        <h3 class="card-text h6">Prénom : <?= $riders[$key]['firstname'] ?></h3>
+                        <h3 class="card-text h6">Age : <?= $riders[$key]['age'] ?></h3>
+                        <h3 class="card-text h6">genre : <?= $riders[$key]['gender'] ?></h3>
+                        <h3 class="card-tex h6">Mot de passe : <?= $riders[$key]['mdp'] ?></h3>
+                        <h3 class="card-text h6">Email : <?= $riders[$key]['mail'] ?></h3>
+                        <h3 class="card-text font-weight-bold h6">Pays : <?= $riders[$key]['country'] ?></h3>
+                        <h3 class="card-text font-weight-bold h6">Sport : <?= $riders[$key]['sport'] ?></h3>
                     </div>
                 </div>
             </div>

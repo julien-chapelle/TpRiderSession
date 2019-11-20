@@ -7,8 +7,6 @@ if (isset($_SESSION['riderNumber'])) {
     '';
 };
 
-// var_dump($_SESSION);
-
 $memorySession = array(
     0 => array(
         'idRider' => '0',
@@ -17,8 +15,6 @@ $memorySession = array(
         'details' => '68mph in the french Alps !',
         'country' => 'France',
         'pictureSession' => 'joshNeumanSession01.jpg',
-        'detailModal' => 'detailModal1'
-
     ),
     1 => array(
         'idRider' => '0',
@@ -27,8 +23,6 @@ $memorySession = array(
         'details' => '70mph in the swiss Alps !',
         'country' => 'Switzerland',
         'pictureSession' => 'joshNeumanSession02.jpg',
-        'detailModal' => 'detailModal2'
-
     ),
     2 => array(
         'idRider' => '0',
@@ -37,8 +31,6 @@ $memorySession = array(
         'details' => 'Raw Run, 62mph in Austria alps !',
         'country' => 'Austria',
         'pictureSession' => 'joshNeumanSession03.jpg',
-        'detailModal' => 'detailModal3'
-
     ),
     3 => array(
         'idRider' => '0',
@@ -47,8 +39,6 @@ $memorySession = array(
         'details' => 'To learn in pain...',
         'country' => 'USA',
         'pictureSession' => 'joshNeumanSession04.jpg',
-        'detailModal' => 'detailModal4'
-
     ),
     4 => array(
         'idRider' => '1',
@@ -57,8 +47,6 @@ $memorySession = array(
         'details' => 'Photo d\'une belle session à la maison durant cet hiver !!!',
         'country' => 'France',
         'pictureSession' => 'maximeCastilloSession01.jpg',
-        'detailModal' => 'detailModal5'
-
     ),
     5 => array(
         'idRider' => '1',
@@ -67,8 +55,6 @@ $memorySession = array(
         'details' => 'Few photos about my last session in Nazare just before Canary Island, small waves but super fun like always !!!',
         'country' => 'Portugal',
         'pictureSession' => 'maximeCastilloSession02.jpg',
-        'detailModal' => 'detailModal6'
-
     ),
     6 => array(
         'idRider' => '1',
@@ -77,8 +63,6 @@ $memorySession = array(
         'details' => 'Fin de ces 3 semaines aux Îles Canaries, pleins de super moments comme d’habitude entre les vagues, beau temps, chaleur, les potes et paysages !!!',
         'country' => 'Espagne - Île Canaries',
         'pictureSession' => 'maximeCastilloSession03.jpg',
-        'detailModal' => 'detailModal7'
-
     ),
     7 => array(
         'idRider' => '1',
@@ -87,8 +71,6 @@ $memorySession = array(
         'details' => 'Super session hier à la maison juste avec deux copains et des vagues parfaites, feeling incroyable d’arriver en vélo et trouver ce pic parfait !!!',
         'country' => 'France',
         'pictureSession' => 'maximeCastilloSession04.jpg',
-        'detailModal' => 'detailModal8'
-
     ),
     8 => array(
         'idRider' => '2',
@@ -97,8 +79,6 @@ $memorySession = array(
         'details' => 'sidewaysspirits Stamsund 2004',
         'country' => 'Norvège',
         'pictureSession' => 'terjeHaakonsenSession01.jpg',
-        'detailModal' => 'detailModal9'
-
     ),
     9 => array(
         'idRider' => '2',
@@ -107,8 +87,6 @@ $memorySession = array(
         'details' => 'Top session !',
         'country' => 'Norvège',
         'pictureSession' => 'terjeHaakonsenSession02.jpg',
-        'detailModal' => 'detailModal10'
-
     ),
     10 => array(
         'idRider' => '2',
@@ -117,7 +95,6 @@ $memorySession = array(
         'details' => 'Audinines couple of weeks ago',
         'country' => 'Austria',
         'pictureSession' => 'terjeHaakonsenSession03.jpg',
-        'detailModal' => 'detailModal11'
 
     ),
     11 => array(
@@ -127,8 +104,6 @@ $memorySession = array(
         'details' => 'hard but cool !!',
         'country' => 'USA',
         'pictureSession' => 'terjeHaakonsenSession04.jpg',
-        'detailModal' => 'detailModal12'
-
     ),
 );
 
@@ -143,7 +118,6 @@ $riders = array(
         'country' => 'USA',
         'avatar' => 'assets/img/joshNeuman.png',
         'sport' => 'Downhill skateboarding'
-
     ),
     1 => array(
         'lastname' => 'Castillo',
@@ -155,7 +129,6 @@ $riders = array(
         'country' => 'France',
         'avatar' => 'assets/img/maximeCastillo.jpg',
         'sport' => 'bodyboard'
-
     ),
     2 => array(
         'lastname' => 'Haakonsen',
@@ -167,14 +140,10 @@ $riders = array(
         'country' => 'Norvège',
         'avatar' => 'assets/img/terjeHaakonsen.jpg',
         'sport' => 'snowboard'
-
     )
 );
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -257,14 +226,14 @@ $riders = array(
                             <p class="card-text">Titre : <?= $memorySession[$key]['nameSession'] ?></p>
                             <p class="card-text">Date : <?= $memorySession[$key]['date'] ?></p>
                             <p class="card-text">Lieux : <?= $memorySession[$key]['country'] ?></p>
-                            <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#<?= $memorySession[$key]['detailModal'] ?>">
+                            <button type="button" class="btn btn-outline-dark btn-sm m-2" data-toggle="modal" data-target="#modal<?= $key ?>">
                                 Détails...
                             </button>
                             <?php
                                 if (isset($_SESSION['riderNumber'])) {
                                     if ($memorySession[$key]['idRider'] == $_SESSION['riderNumber']) { ?>
-                                    <button class="btn btn-outline-danger btn-sm" role="button">Modifier</button>
-                                    <button class="btn btn-outline-danger btn-sm" role="button">Supprimer</button>
+                                    <button class="btn btn-outline-danger btn-sm m-2" role="button">Modifier</button>
+                                    <button class="btn btn-outline-danger btn-sm m-2" role="button">Supprimer</button>
                             <?php };
                                 } else {
                                     '';
@@ -281,7 +250,7 @@ $riders = array(
     <!-- Modal début -->
     <?php foreach ($memorySession as $key => $value) {
         ?>
-        <div class="modal fade" id="<?= $memorySession[$key]['detailModal'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
