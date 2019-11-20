@@ -7,7 +7,7 @@ if (isset($_SESSION['riderNumber'])) {
     '';
 };
 
-$wrongMdpLogin = 'Mauvais login ou mot de passe'; 
+$wrongMdpLogin = '';
 
 if (isset($_POST['login'])) {
     if ($_POST['mailLogin'] == 'neuman.josh@gmail.com' && $_POST['passwordLogin'] == 'commesurdesroulettes') {
@@ -20,7 +20,7 @@ if (isset($_POST['login'])) {
         $_SESSION['riderNumber'] = 2;
         header('location: index.php');
     } else {
-        return $wrongMdpLogin;
+        $wrongMdpLogin = '<i class="far fa-times-circle"></i> Mauvais login ou mot de passe !';
     };
 };
 
@@ -92,7 +92,7 @@ if (isset($_POST['login'])) {
         <div class="row text-center m-0 my-3 border-dark border-bottom">
             <div class="col">
                 <h2 class="font-weight-bold fontColor1 h4">CONNECTION</h2>
-                <p class="font-weight-bold fontColor1 h5"><?= '<i class="far fa-times-circle"></i> ' . $wrongMdpLogin . ' !' ?></p>
+                <p class="font-weight-bold fontColor1 h5"><?= $wrongMdpLogin ?></p>
             </div>
         </div>
         <!-- Titre h2 fin -->

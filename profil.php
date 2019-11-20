@@ -8,8 +8,8 @@ if (isset($_SESSION['riderNumber'])) {
 };
 
 if (isset($_POST['logout'])) {
-
     session_unset();
+    session_destroy();
     header('location: logout.php');
 };
 
