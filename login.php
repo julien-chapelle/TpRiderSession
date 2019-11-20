@@ -3,6 +3,7 @@
 session_start();
 if (isset($_SESSION['riderNumber'])) {
     $key = $_SESSION['riderNumber'];
+    header('location: index.php');
 } else {
     '';
 };
@@ -34,7 +35,8 @@ if (isset($_POST['login'])) {
     <meta charset="UTF-8" />
     <title>Three of Ride</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- Logo title -->
+    <link rel="shortcut icon" href="assets/img/logo.png" class="imgLogoTitle" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <!-- CSS -->
@@ -45,18 +47,18 @@ if (isset($_POST['login'])) {
 </head>
 
 
-<body class="fontBankGothic" id="bodyPicsCover">
+<body class="fontAzonix" id="bodyPicsCover">
 
     <div class="container-fluid p-0 mt-2">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom border-dark">
-            <a class="navbar-brand" href="#"><img src="assets/img/logo.png" class="imgLogo" /></a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom border-dark shadow">
+            <a class="navbar-brand" href="index.php"><img src="assets/img/logo.png" class="imgLogo" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item active m-2">
                         <a class="nav-link" href="index.php"><i class="fas fa-photo-video"></i> Sessions</a>
                     </li>
@@ -84,12 +86,12 @@ if (isset($_POST['login'])) {
         <!-- Titre h1 début -->
         <div class="row justify-content-around m-0 mt-4">
             <div class="col">
-                <h1 class="fontColor1 text-center">THREE OF RIDE<h1>
+                <h1 class="fontColor1 text-center shadow">THREE OF RIDE<h1>
             </div>
         </div>
         <!-- Titre h1 fin -->
         <!-- Titre h2 début -->
-        <div class="row text-center m-0 my-3 border-dark border-bottom">
+        <div class="row text-center m-0 my-3">
             <div class="col">
                 <h2 class="font-weight-bold fontColor1 h4">CONNECTION</h2>
                 <p class="font-weight-bold fontColor1 h5"><?= $wrongMdpLogin ?></p>
@@ -101,21 +103,21 @@ if (isset($_POST['login'])) {
             <div class="row text-center m-0 mt-1 justify-content-center">
                 <div class="col-10">
                     <label class="font-weight-bold fontColor1" for="mailLogin"><i class="fas fa-at"></i> EMAIL</label>
-                    <input title="Renseignez l'adresse email" placeholder="ex: JeanDupont@wanadoo.fr" type="email" class="form-control text-center" name="mailLogin" id="mailLogin" />
+                    <input title="Renseignez l'adresse email" placeholder="ex: JeanDupont@wanadoo.fr" type="email" class="form-control text-center shadow" name="mailLogin" id="mailLogin" required />
                 </div>
             </div>
             <div class="row text-center m-0 mt-1 justify-content-center">
                 <div class="col-10">
                     <label class="font-weight-bold fontColor1" for="passwordLogin"><i class="fas fa-unlock-alt"></i> MOT DE PASSE</label>
-                    <input title="Renseignez le mot de passe" type="password" class="form-control text-center" name="passwordLogin" id="passwordLogin" />
+                    <input title="Renseignez le mot de passe" type="password" class="form-control text-center shadow" name="passwordLogin" id="passwordLogin" required />
                 </div>
             </div>
             <div class="row text-center m-0 mt-3 justify-content-center">
                 <div class="col py-4">
-                    <button class="btn btn-danger btn-sm" role="button" type="submit" name="login">Connection au compte</button>
+                    <button class="btn btn-danger btn-sm shadow" role="button" type="submit" name="login">Connection au compte</button>
                 </div>
                 <div class="col py-4">
-                    <a href="index.php" class="btn btn-danger btn-sm" role="button" type="button" name="returnIndex2">Retour à l'accueil</a>
+                    <a href="index.php" class="btn btn-danger btn-sm shadow" role="button" type="button" name="returnIndex2">Retour à l'accueil</a>
                 </div>
             </div>
         </form>

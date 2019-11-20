@@ -152,7 +152,8 @@ $riders = array(
     <meta charset="UTF-8" />
     <title>Three of Ride</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- Logo title -->
+    <link rel="shortcut icon" href="assets/img/logo.png" class="imgLogoTitle" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <!-- CSS -->
@@ -163,12 +164,12 @@ $riders = array(
 </head>
 
 
-<body class="fontBankGothic" id="bodyPicsCover">
+<body class="fontAzonix" id="bodyPicsCover">
 
     <div class="container-fluid p-0 mt-2">
         <!-- Navbar début -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom border-dark">
-            <a class="navbar-brand" href="#"><img src="assets/img/logo.png" class="imgLogo" /></a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom border-dark shadow">
+            <a class="navbar-brand" href="index.php"><img src="assets/img/logo.png" class="imgLogo" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -203,12 +204,12 @@ $riders = array(
         <!-- Titre h1 début -->
         <div class="row justify-content-around m-0 mt-4">
             <div class="col">
-                <h1 class="fontColor1 text-center">THREE OF RIDE<h1>
+                <h1 class="fontColor1 text-center shadow">THREE OF RIDE<h1>
             </div>
         </div>
         <!-- Titre h1 fin -->
         <!-- Titre h2 début -->
-        <div class="row text-center m-0 my-3 border-dark border-bottom">
+        <div class="row text-center m-0 my-3">
             <div class="col">
                 <h2 class="font-weight-bold fontColor1 h4">SESSIONS DES RIDERS !</h2>
             </div>
@@ -219,21 +220,21 @@ $riders = array(
             <div class="col m-1 card-columns">
                 <?php foreach ($memorySession as $key => $value) {
                     ?>
-                    <div class="card shadow">
+                    <div class="card shadow image">
                         <img src="assets/img/<?= $memorySession[$key]['pictureSession'] ?>" class="card-img-top p-2">
                         <div class="card-body">
                             <p class="card-text">IdRider : <?= $memorySession[$key]['idRider'] ?></p>
                             <p class="card-text">Titre : <?= $memorySession[$key]['nameSession'] ?></p>
                             <p class="card-text">Date : <?= $memorySession[$key]['date'] ?></p>
                             <p class="card-text">Lieux : <?= $memorySession[$key]['country'] ?></p>
-                            <button type="button" class="btn btn-outline-dark btn-sm m-2" data-toggle="modal" data-target="#modal<?= $key ?>">
+                            <button type="button" class="btn btn-outline-dark btn-sm m-2 shadow" data-toggle="modal" data-target="#modal<?= $key ?>">
                                 Détails...
                             </button>
                             <?php
                                 if (isset($_SESSION['riderNumber'])) {
                                     if ($memorySession[$key]['idRider'] == $_SESSION['riderNumber']) { ?>
-                                    <button class="btn btn-outline-danger btn-sm m-2" role="button">Modifier</button>
-                                    <button class="btn btn-outline-danger btn-sm m-2" role="button">Supprimer</button>
+                                    <button class="btn btn-outline-danger btn-sm m-2 shadow" role="button">Modifier</button>
+                                    <button class="btn btn-outline-danger btn-sm m-2 shadow" role="button">Supprimer</button>
                             <?php };
                                 } else {
                                     '';
@@ -257,7 +258,7 @@ $riders = array(
                         <?= $memorySession[$key]['details'] ?>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-secondary shadow" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

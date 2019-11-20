@@ -3,6 +3,7 @@
 session_start();
 if (isset($_SESSION['riderNumber'])) {
     $key = $_SESSION['riderNumber'];
+    header('location: index.php');
 } else {
     '';
 };
@@ -15,7 +16,8 @@ if (isset($_SESSION['riderNumber'])) {
     <meta charset="UTF-8" />
     <title>Three of Ride</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- Logo title -->
+    <link rel="shortcut icon" href="assets/img/logo.png" class="imgLogoTitle" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <!-- CSS -->
@@ -26,18 +28,18 @@ if (isset($_SESSION['riderNumber'])) {
 </head>
 
 
-<body class="fontBankGothic" id="bodyPicsCover">
+<body class="fontAzonix" id="bodyPicsCover">
 
     <div class="container-fluid p-0 mt-2">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom border-dark">
-            <a class="navbar-brand" href="#"><img src="assets/img/logo.png" class="imgLogo" /></a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top border-bottom border-dark shadow">
+            <a class="navbar-brand" href="index.php"><img src="assets/img/logo.png" class="imgLogo" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item active m-2">
                         <a class="nav-link" href="index.php"><i class="fas fa-photo-video"></i> Sessions</a>
                     </li>
@@ -65,19 +67,12 @@ if (isset($_SESSION['riderNumber'])) {
         <!-- Titre h1 début -->
         <div class="row justify-content-around m-0 mt-4">
             <div class="col">
-                <h1 class="fontColor1 text-center">THREE OF RIDE<h1>
+                <h1 class="fontColor1 text-center shadow">THREE OF RIDE<h1>
             </div>
         </div>
         <!-- Titre h1 fin -->
-        <!-- Titre h2 début -->
-        <div class="row text-center m-0 my-3 border-dark border-bottom">
-            <div class="col">
-                <h2 class="font-weight-bold fontColor1 h4">DECONNECTION</h2>
-            </div>
-        </div>
-        <!-- Titre h2 fin -->
         <!-- logout message début -->
-        <div class="row text-center m-0 my-3 border-dark border-bottom">
+        <div class="row text-center m-0 my-3">
             <div class="col">
                 <p class="font-weight-bold fontColor1 h4">Vous êtes bien déconnecté !</p>
             </div>
